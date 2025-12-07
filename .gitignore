@@ -44,3 +44,7 @@ Thumbs.db
 .github/instructions/nx.instructions.md
 
 vite.config.*.timestamp*
+
+node_modules
+dist
+.env
