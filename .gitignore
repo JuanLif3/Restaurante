@@ -45,6 +45,19 @@ Thumbs.db
 
 vite.config.*.timestamp*
 
-node_modules
-dist
+# Dependencias (muy pesadas, no se suben)
+node_modules/
+
+# Build de producción (se genera solo)
+dist/
+
+# Variables de entorno (¡SECRETOS! Nunca subir)
 .env
+
+# Archivos de sistema y logs
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+.nx/cache
