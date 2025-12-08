@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // Si existe la variable de entorno (en la nube), úsala. Si no, usa localhost (en tu PC).
-const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 const api = axios.create({
-  baseURL: apiUrl,
+  baseURL: API_URL,
 });
 // Interceptor: Antes de enviar la petición, pega el token si existe
 api.interceptors.request.use((config) => {
