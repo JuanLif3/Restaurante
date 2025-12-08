@@ -1,0 +1,15 @@
+> webpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 28.6 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/app/modules/users/users.service.ts:[32m[1m58:9[22m[39m[1m[39m[22m
+[90mTS2353: [39mObject literal may only specify known properties, and 'id' does not exist in type 'FindOptionsSelect<User> | FindOptionsSelectByString<User>'.
+  [0m [90m 56 |[39m       where[33m:[39m { email }[33m,[39m
+   [90m 57 |[39m       select[33m:[39m{
+  [31m[1m>[22m[39m[90m 58 |[39m         id[33m:[39m [36mtrue[39m[33m,[39m
+   [90m    |[39m         [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 59 |[39m         email[33m:[39m [36mtrue[39m[33m,[39m
+   [90m 60 |[39m         password[33m:[39m [36mtrue[39m[33m,[39m
+   [90m 61 |[39m         role[33m:[39m [36mtrue[39m[33m,[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (b7d0bf459862ec92)

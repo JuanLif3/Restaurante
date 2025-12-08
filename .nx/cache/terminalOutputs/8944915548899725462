@@ -1,0 +1,87 @@
+[?25l(node:8792) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2m> [22m[2mnx run[22m backend:build:development
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 33.3 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (f1841124c4aad0a6)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project backend[39m[2m (4s)[22m[0K
+[0K
+[0J[?25h[?25h[?25h[1m[31mDebugger listening on ws://localhost:9229/1f68a021-209b-48d7-9a3a-3589c0f32e00[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/1f68a021-209b-48d7-9a3a-3589c0f32e00[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:39 p.m. [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +32ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProductsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mOrdersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFinancesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 8869  - [39m08/12/2025, 12:00:40 p.m. [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[1m[31m[31m[Nest] 8869  - [39m[31m08/12/2025, 12:00:40 p.m. [31m  ERROR[39m[31m [38;5;3m[ExceptionHandler] [39m[31mUnknownDependenciesException [Error]: Nest can't resolve dependencies of the AuthController (?). Please make sure that the argument AuthService at index [0] is available in the AuthModule context.[39m[22m
+[1m[31m[39m[22m
+[1m[31mPotential solutions:[39m[22m
+[1m[31m- Is AuthModule a valid NestJS module?[39m[22m
+[1m[31m- If AuthService is a provider, is it part of the current AuthModule?[39m[22m
+[1m[31m- If AuthService is exported from a separate @Module, is that module imported within AuthModule?[39m[22m
+[1m[31m  @Module({[39m[22m
+[1m[31m    imports: [ /* the Module containing AuthService */ ][39m[22m
+[1m[31m  })[39m[22m
+[1m[31m[39m[22m
+[1m[31mFor more common dependency resolution issues, see: https://docs.nestjs.com/faq/common-errors[39m[22m
+[1m[31m    at Injector.lookupComponentInParentModules [90m(/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/injector.js:286:19[90m)[39m[31m[39m[22m
+[1m[31m    at resolveParam [90m(/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/injector.js:140:38[90m)[39m[31m[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at Injector.resolveConstructorParams [90m(/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/injector.js:169:27[90m)[39m[31m[39m[22m
+[1m[31m    at Injector.loadInstance [90m(/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/injector.js:75:13[90m)[39m[31m[39m[22m
+[1m[31m    at Injector.loadController [90m(/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/injector.js:94:9[90m)[39m[31m[39m[22m
+[1m[31m    at [90m/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/instance-loader.js:68:13[39m[22m
+[1m[31m    at async Promise.all (index 0)[39m[22m
+[1m[31m    at InstanceLoader.createInstancesOfControllers [90m(/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/instance-loader.js:67:9[90m)[39m[31m[39m[22m
+[1m[31m    at [90m/home/juanr/restaurante/[39m[31mnode_modules/[4m@nestjs/core[24m/injector/instance-loader.js:42:13 {[39m[22m
+[1m[31m  type: [32m'AuthController'[39m[31m,[39m[22m
+[1m[31m  context: {[39m[22m
+[1m[31m    index: [33m0[39m[31m,[39m[22m
+[1m[31m    dependencies: [[39m[22m
+[1m[31m      [36m[class AuthService][39m[31m[39m[22m
+[1m[31m    ],[39m[22m
+[1m[31m    name: [36m[class AuthService][39m[31m[39m[22m
+[1m[31m  },[39m[22m
+[1m[31m  metadata: {[39m[22m
+[1m[31m    id: [32m'861454ed45e4ffe552f1e'[39m[31m[39m[22m
+[1m[31m  },[39m[22m
+[1m[31m  moduleRef: {[39m[22m
+[1m[31m    id: [32m'4510daab6617ad59d3933'[39m[31m[39m[22m
+[1m[31m  }[39m[22m
+[1m[31m}[39m[22m
+[1m[31m[39m[22m
+
+[7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[?25l(node:9457) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2m> [22m[2mnx run[22m backend:build:development
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 33.5 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (e3748e9a3df33020)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project backend[39m[2m (4s)[22m[0K
+[0K
+[0J[?25h[?25h[?25h[1m[31mDebugger listening on ws://localhost:9229/5b67a844-6772-4992-bd37-b25375cd07ca[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/5b67a844-6772-4992-bd37-b25375cd07ca[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[1m[31mWatch error: Daemon closed the connection[39m[22m

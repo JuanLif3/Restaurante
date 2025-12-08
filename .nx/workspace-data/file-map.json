@@ -1,0 +1,778 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.1.3",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".nx/cache/6774888196914614164/dist/apps/backend/main.js",
+        "hash": "803597278857537330"
+      },
+      {
+        "file": ".nx/cache/12381857273392340268-logs.tar.gz",
+        "hash": "18148990011823167667"
+      },
+      {
+        "file": ".nx/cache/6774888196914614164/dist/apps/backend/package.json",
+        "hash": "4592919944007753996"
+      },
+      {
+        "file": ".nx/cache/run.json",
+        "hash": "17931546880058141725"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/15200164146217030224",
+        "hash": "14824084012203790948"
+      },
+      {
+        "file": ".nx/cache/6797252257076236637/dist/apps/backend/package-lock.json",
+        "hash": "14356386291537464700"
+      },
+      {
+        "file": ".nx/cache/9197601421011567460/dist/apps/backend/package.json",
+        "hash": "16571060116732454697"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17594840990713631085"
+      },
+      {
+        "file": ".nx/cache/8416361118882455791/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/workspace-data/source-maps.json",
+        "hash": "15926331182547010496"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/9341569324230316488",
+        "hash": "12906434531439723921"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "6419311531660050161"
+      },
+      {
+        "file": "dist/apps/backend/package-lock.json",
+        "hash": "14356386291537464700"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/14958652052268854499",
+        "hash": "6989993207571261160"
+      },
+      {
+        "file": ".nx/cache/14958652052268854499/dist/apps/backend/package-lock.json",
+        "hash": "14356386291537464700"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/6797252257076236637",
+        "hash": "17569226250487436760"
+      },
+      {
+        "file": ".nx/cache/14958652052268854499/dist/apps/backend/package.json",
+        "hash": "4592919944007753996"
+      },
+      {
+        "file": ".nx/cache/12381857273392340268.tar.gz",
+        "hash": "17428969853334397575"
+      },
+      {
+        "file": ".nx/cache/8416361118882455791.tar.gz",
+        "hash": "4277292772614641702"
+      },
+      {
+        "file": ".nx/cache/14958652052268854499/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/cache/8416361118882455791/dist/apps/backend/main.js",
+        "hash": "15986729890534527702"
+      },
+      {
+        "file": ".nx/cache/8416361118882455791/dist/apps/backend/package-lock.json",
+        "hash": "14356386291537464700"
+      },
+      {
+        "file": ".nx/cache/16721176726504774894.tar.gz",
+        "hash": "12081788842264292030"
+      },
+      {
+        "file": "dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/cache/9341569324230316488/dist/apps/backend/package.json",
+        "hash": "16571060116732454697"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "13417776046909105611"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "3091359258626460534"
+      },
+      {
+        "file": ".nx/cache/16721176726504774894/dist/apps/backend/main.js",
+        "hash": "15641451061259111253"
+      },
+      {
+        "file": ".nx/cache/6797252257076236637-logs.tar.gz",
+        "hash": "17288056553661679146"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/5291485032325249086",
+        "hash": "15979982667573671957"
+      },
+      {
+        "file": ".nx/cache/6797252257076236637/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/cache/12381857273392340268/dist/apps/backend/main.js",
+        "hash": "774587545267087229"
+      },
+      {
+        "file": ".nx/cache/6797252257076236637/dist/apps/backend/main.js",
+        "hash": "13390305954823407859"
+      },
+      {
+        "file": ".nx/cache/12381857273392340268/dist/apps/backend/package-lock.json",
+        "hash": "14356386291537464700"
+      },
+      {
+        "file": ".nx/cache/14958652052268854499.tar.gz",
+        "hash": "16304161745203980365"
+      },
+      {
+        "file": ".nx/cache/6774888196914614164.tar.gz",
+        "hash": "3635690016214815014"
+      },
+      {
+        "file": ".nx/cache/14958652052268854499/dist/apps/backend/main.js",
+        "hash": "4370859279556183251"
+      },
+      {
+        "file": ".nx/cache/8944915548899725462-logs.tar.gz",
+        "hash": "3648520696291962885"
+      },
+      {
+        "file": ".nx/cache/9197601421011567460/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/cache/9197601421011567460/dist/apps/backend/main.js.map",
+        "hash": "12030983406850015371"
+      },
+      {
+        "file": ".nx/cache/9197601421011567460.tar.gz",
+        "hash": "2918962723283571521"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/8416361118882455791",
+        "hash": "3747318772568283601"
+      },
+      {
+        "file": ".nx/cache/9341569324230316488-logs.tar.gz",
+        "hash": "6448994954658657174"
+      },
+      {
+        "file": ".nx/workspace-data/eslint-2654242865465226088.hash",
+        "hash": "9245720209894661887"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/6774888196914614164",
+        "hash": "11251093864229126804"
+      },
+      {
+        "file": ".nx/workspace-data/71682349651546f4ab6da91b09302173.db-wal",
+        "hash": "9720345730759504026"
+      },
+      {
+        "file": ".nx/cache/9197601421011567460-logs.tar.gz",
+        "hash": "1581321194438864433"
+      },
+      {
+        "file": ".nx/cache/9341569324230316488/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/cache/cloud/verify.lock",
+        "hash": "10422718514823887176"
+      },
+      {
+        "file": ".nx/cache/5291485032325249086-logs.tar.gz",
+        "hash": "10786923362883527732"
+      },
+      {
+        "file": ".nx/cache/12381857273392340268/dist/apps/backend/main.js.map",
+        "hash": "252785324634950255"
+      },
+      {
+        "file": "dist/apps/backend/main.js.map",
+        "hash": "252785324634950255"
+      },
+      {
+        "file": "dist/apps/backend/package.json",
+        "hash": "4592919944007753996"
+      },
+      {
+        "file": ".nx/cache/8416361118882455791-logs.tar.gz",
+        "hash": "16768415813941690061"
+      },
+      {
+        "file": ".nx/cache/14958652052268854499-logs.tar.gz",
+        "hash": "5580535658026745086"
+      },
+      {
+        "file": ".nx/cache/3048398020029537873-logs.tar.gz",
+        "hash": "3927653198179571555"
+      },
+      {
+        "file": ".nx/cache/6774888196914614164/dist/apps/backend/package-lock.json",
+        "hash": "14356386291537464700"
+      },
+      {
+        "file": ".nx/workspace-data/webpack-7566275343909617285.hash",
+        "hash": "12431275160866098994"
+      },
+      {
+        "file": ".nx/cache/15200164146217030224-logs.tar.gz",
+        "hash": "569621196827144559"
+      },
+      {
+        "file": ".nx/cache/16721176726504774894/dist/apps/backend/package-lock.json",
+        "hash": "14356386291537464700"
+      },
+      {
+        "file": ".nx/cache/16721176726504774894/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/workspace-data/file-map.json",
+        "hash": "11721199383214037691"
+      },
+      {
+        "file": ".nx/workspace-data/d/daemon.log",
+        "hash": "2088591277465975992"
+      },
+      {
+        "file": ".nx/cache/9197601421011567460/dist/apps/backend/package-lock.json",
+        "hash": "384267366545035440"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": ".nx/cache/14958652052268854499/dist/apps/backend/main.js.map",
+        "hash": "2509755861289986077"
+      },
+      {
+        "file": ".nx/workspace-data/nx_files.nxt",
+        "hash": "11247534184152610474"
+      },
+      {
+        "file": ".nx/cache/12381857273392340268/dist/apps/backend/package.json",
+        "hash": "4592919944007753996"
+      },
+      {
+        "file": ".nx/cache/6774888196914614164/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".nx/cache/12381857273392340268/dist/apps/backend/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/8944915548899725462",
+        "hash": "14133878887373717547"
+      },
+      {
+        "file": ".nx/cache/9341569324230316488/dist/apps/backend/package-lock.json",
+        "hash": "384267366545035440"
+      },
+      {
+        "file": ".nx/cache/6797252257076236637.tar.gz",
+        "hash": "12064568101372377913"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "7311729156798379896"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/16721176726504774894",
+        "hash": "12654669058581092009"
+      },
+      {
+        "file": ".nx/workspace-data/playwright-5186013267177752385.hash",
+        "hash": "6667088334952311041"
+      },
+      {
+        "file": ".nx/cache/6797252257076236637/dist/apps/backend/package.json",
+        "hash": "4592919944007753996"
+      },
+      {
+        "file": ".nx/cache/16721176726504774894-logs.tar.gz",
+        "hash": "5427795315863796139"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16936441711144470533"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/3048398020029537873",
+        "hash": "6741058293782394599"
+      },
+      {
+        "file": ".nx/cache/9341569324230316488.tar.gz",
+        "hash": "16214130337335238275"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json",
+        "hash": "3912154182474285982"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/12381857273392340268",
+        "hash": "16177687841028815598"
+      },
+      {
+        "file": ".nx/cache/6774888196914614164-logs.tar.gz",
+        "hash": "13812745677367674769"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/9197601421011567460",
+        "hash": "2964190209825385559"
+      },
+      {
+        "file": ".nx/cache/9341569324230316488/dist/apps/backend/main.js",
+        "hash": "4474546372948579305"
+      },
+      {
+        "file": ".nx/workspace-data/vite-9347777721732807074.hash",
+        "hash": "7529096084378086706"
+      },
+      {
+        "file": "package.json",
+        "hash": "17236061784158427314"
+      },
+      {
+        "file": "dist/apps/backend/main.js",
+        "hash": "774587545267087229"
+      },
+      {
+        "file": ".nx/cache/8416361118882455791/dist/apps/backend/main.js.map",
+        "hash": "7905697139275859235"
+      },
+      {
+        "file": ".nx/cache/8416361118882455791/dist/apps/backend/package.json",
+        "hash": "4592919944007753996"
+      },
+      {
+        "file": ".nx/cache/9197601421011567460/dist/apps/backend/main.js",
+        "hash": "3739750069488304465"
+      },
+      {
+        "file": ".nx/cache/16721176726504774894/dist/apps/backend/package.json",
+        "hash": "4592919944007753996"
+      },
+      {
+        "file": "README.md",
+        "hash": "9063241098656675140"
+      }
+    ],
+    "projectFileMap": {
+      "backend": [
+        {
+          "file": "apps/backend/.gitignore",
+          "hash": "6080296100865394234"
+        },
+        {
+          "file": "apps/backend/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "apps/backend/project.json",
+          "hash": "14143623262900247406"
+        },
+        {
+          "file": "apps/backend/src/app/app.controller.ts",
+          "hash": "15276891910009544695",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/app.module.ts",
+          "hash": "4799597442006062203",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/app.service.ts",
+          "hash": "9967902337593410053",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/auth/auth.controller.ts",
+          "hash": "2511301224512252594",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/auth/auth.module.ts",
+          "hash": "13358288107271914998",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/auth/auth.service.ts",
+          "hash": "3843154732495603300",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/auth/jwt.strategy.ts",
+          "hash": "14763997548494427273",
+          "deps": [
+            "npm:passport-jwt",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/finances/dto/create-finance.dto.ts",
+          "hash": "10179685311015043608"
+        },
+        {
+          "file": "apps/backend/src/app/modules/finances/dto/update-finance.dto.ts",
+          "hash": "14632011470819949598",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/finances/entities/finance.entity.ts",
+          "hash": "6161430794023145256"
+        },
+        {
+          "file": "apps/backend/src/app/modules/finances/finances.controller.ts",
+          "hash": "10122121210805652337",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/finances/finances.module.ts",
+          "hash": "7750006132654081203",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/finances/finances.service.ts",
+          "hash": "1970634349593232525",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/orders/dto/create-order.dto.ts",
+          "hash": "7773666049424069741"
+        },
+        {
+          "file": "apps/backend/src/app/modules/orders/dto/update-order.dto.ts",
+          "hash": "16513181295348197903",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/orders/entities/order.entity.ts",
+          "hash": "13316008351691905785"
+        },
+        {
+          "file": "apps/backend/src/app/modules/orders/orders.controller.ts",
+          "hash": "13546183172745531786",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/orders/orders.module.ts",
+          "hash": "15368599962398200545",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/orders/orders.service.ts",
+          "hash": "7840462432298086348",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/products/dto/create-product.dto.ts",
+          "hash": "12303558786583034297"
+        },
+        {
+          "file": "apps/backend/src/app/modules/products/dto/update-product.dto.ts",
+          "hash": "13830387973250512803",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/products/entities/product.entity.ts",
+          "hash": "8588510740635331187"
+        },
+        {
+          "file": "apps/backend/src/app/modules/products/products.controller.ts",
+          "hash": "12770994593797883796",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/products/products.module.ts",
+          "hash": "8540839630107567828",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/products/products.service.ts",
+          "hash": "11365448881538936364",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/users/dto/create-user.dto.ts",
+          "hash": "14814973268156216243",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/users/dto/update-user.dto.ts",
+          "hash": "18378884879315876314",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/users/entities/user.entity.ts",
+          "hash": "9680853276201888782",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/users/users.controller.ts",
+          "hash": "6868712639884758310",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/users/users.module.ts",
+          "hash": "3977520182399317208",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/backend/src/app/modules/users/users.service.ts",
+          "hash": "18220530341405727809",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/backend/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/backend/src/main.ts",
+          "hash": "150780270862474464",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/backend/tsconfig.app.json",
+          "hash": "14721380886453079150"
+        },
+        {
+          "file": "apps/backend/tsconfig.json",
+          "hash": "3025378044812449119"
+        },
+        {
+          "file": "apps/backend/webpack.config.js",
+          "hash": "9430280742599281905",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
+      "frontend-e2e": [
+        {
+          "file": "frontend-e2e/playwright.config.ts",
+          "hash": "8598396243705263314",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "frontend-e2e/project.json",
+          "hash": "13787581372154107543"
+        },
+        {
+          "file": "frontend-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "frontend-e2e/tsconfig.json",
+          "hash": "8714607179129573500"
+        }
+      ],
+      "frontend": [
+        {
+          "file": "frontend/index.html",
+          "hash": "2323699249478598756"
+        },
+        {
+          "file": "frontend/project.json",
+          "hash": "11389205431730976346"
+        },
+        {
+          "file": "frontend/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "frontend/src/app/app.module.css",
+          "hash": "8887387885984320532"
+        },
+        {
+          "file": "frontend/src/app/app.tsx",
+          "hash": "13016597669077160099",
+          "deps": [
+            "npm:react-router-dom"
+          ]
+        },
+        {
+          "file": "frontend/src/app/nx-welcome.tsx",
+          "hash": "14708174282304233720"
+        },
+        {
+          "file": "frontend/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/main.tsx",
+          "hash": "6494962159756833686",
+          "deps": [
+            "npm:react",
+            "npm:react-router-dom",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "frontend/src/styles.css",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "frontend/tsconfig.app.json",
+          "hash": "17534131638295275382"
+        },
+        {
+          "file": "frontend/tsconfig.json",
+          "hash": "47723161924471509"
+        },
+        {
+          "file": "frontend/vite.config.mts",
+          "hash": "7191089284061293696",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-react",
+            "npm:@nx/vite"
+          ]
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "14994536178177117876"
+}
