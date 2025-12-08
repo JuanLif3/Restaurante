@@ -1,0 +1,124 @@
+/* apps/frontend/src/app/pages/css/Kitchen.css */
+.kitchen-container {
+  padding: 30px;
+  background-color: #2c3e50; /* Fondo oscuro para contraste */
+  min-height: 100vh;
+  color: white;
+}
+
+.kitchen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 15px;
+}
+
+.kitchen-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.refresh-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.refresh-btn:hover {
+  background-color: #2980b9;
+}
+
+/* GRILLA DE PEDIDOS */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.order-card {
+  background-color: white;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.order-header {
+  background-color: #e74c3c; /* Rojo urgente */
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.time-ago {
+  font-size: 12px;
+  opacity: 0.9;
+  font-weight: normal;
+}
+
+.order-body {
+  padding: 20px;
+  flex: 1;
+}
+
+.order-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-body li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 16px;
+}
+
+.qty {
+  font-weight: bold;
+  color: #e74c3c;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.order-footer {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+.ready-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ready-btn:hover {
+  background-color: #2ecc71;
+}
+
+.empty-message {
+  text-align: center;
+  color: #bdc3c7;
+  grid-column: 1 / -1;
+  margin-top: 50px;
+}
