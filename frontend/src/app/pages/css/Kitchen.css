@@ -1,76 +1,134 @@
 /* apps/frontend/src/app/pages/css/Kitchen.css */
-.kitchen-container {
-  padding: 30px;
-  background-color: #2c3e50; /* Fondo oscuro para contraste */
-  min-height: 100vh;
-  color: white;
+
+:root {
+  --bg-dark-emerald: #022c22;
+  --card-emerald: #0b3d31;
+  --gold-primary: #d4af37;
+  --gold-hover: #b5952f;
+  --text-white: #f0fdf4;
+  --text-muted: #aab3b0;
+  --red-alert: #ef4444;
+  --success-green: #10b981;
 }
 
+.kitchen-container {
+  padding: 40px;
+  background-color: var(--bg-dark-emerald);
+  min-height: 100vh;
+  color: var(--text-white);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- HEADER --- */
 .kitchen-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #555;
-  padding-bottom: 15px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  padding-bottom: 20px;
 }
 
 .kitchen-header h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-primary);
   margin: 0;
-  font-size: 28px;
+  font-size: 36px;
+  letter-spacing: 0.5px;
 }
 
-.refresh-btn {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.action-btn {
+  background-color: transparent;
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-primary);
+  padding: 10px 25px;
+  border-radius: 30px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.refresh-btn:hover {
-  background-color: #2980b9;
+.action-btn:hover {
+  background-color: var(--gold-primary);
+  color: #022c22;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
-/* GRILLA DE PEDIDOS */
+.logout-btn {
+  border-color: rgba(255,255,255,0.2);
+  color: var(--text-muted);
+}
+
+.logout-btn:hover {
+  background-color: var(--red-alert);
+  border-color: var(--red-alert);
+  color: white;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+/* --- GRILLA DE COMANDAS --- */
 .orders-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .order-card {
-  background-color: white;
-  color: #333;
-  border-radius: 8px;
+  background-color: var(--card-emerald);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s, border-color 0.3s;
+  position: relative;
 }
 
+.order-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* Encabezado de la Tarjeta */
 .order-header {
-  background-color: #e74c3c; /* Rojo urgente */
-  color: white;
-  padding: 15px;
+  background-color: rgba(0,0,0,0.2);
+  padding: 20px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-  font-size: 18px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 }
 
-.time-ago {
+.table-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--gold-primary);
+  margin: 0;
+}
+
+.time-badge {
   font-size: 12px;
-  opacity: 0.9;
-  font-weight: normal;
+  color: var(--text-muted);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 10px;
+  border-radius: 15px;
+  background-color: rgba(255,255,255,0.05);
 }
 
+/* Cuerpo del Pedido */
 .order-body {
-  padding: 20px;
+  padding: 25px;
   flex: 1;
 }
 
@@ -81,44 +139,68 @@
 }
 
 .order-body li {
-  padding: 8px 0;
-  border-bottom: 1px dashed #eee;
-  font-size: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
+  display: flex;
+  align-items: center;
+  font-size: 15px;
 }
 
-.qty {
-  font-weight: bold;
-  color: #e74c3c;
-  margin-right: 10px;
-  font-size: 18px;
+.order-body li:last-child {
+  border-bottom: none;
 }
 
+.qty-badge {
+  background-color: var(--gold-primary);
+  color: #022c22;
+  font-weight: 800;
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  font-size: 13px;
+}
+
+/* Pie de Tarjeta */
 .order-footer {
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-top: 1px solid #eee;
+  padding: 20px 25px;
+  background-color: rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .ready-btn {
   width: 100%;
-  padding: 12px;
-  background-color: #27ae60;
-  color: white;
+  padding: 14px;
+  background-color: var(--gold-primary);
+  color: #022c22;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s;
 }
 
 .ready-btn:hover {
-  background-color: #2ecc71;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
 .empty-message {
-  text-align: center;
-  color: #bdc3c7;
   grid-column: 1 / -1;
-  margin-top: 50px;
+  text-align: center;
+  padding: 60px;
+  color: var(--text-muted);
+}
+
+.empty-message h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-primary);
+  font-size: 28px;
+  margin-bottom: 10px;
 }

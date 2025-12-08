@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+/* apps/frontend/src/styles.css */
+
+/* 1. Elimina el margen blanco del navegador */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #022c22; /* Color de fondo base (para evitar flash blanco al cargar) */
+}
+
+/* 2. Asegura que la altura ocupe toda la pantalla */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* 3. Reset para que todos los elementos calculen bien su tamaño */
+*, *::before, *::after {
+  box-sizing: inherit;
+}

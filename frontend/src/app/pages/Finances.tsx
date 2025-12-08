@@ -11,10 +11,8 @@ export default function Finances() {
     balance: 0
   });
   
-  // Estados para registrar gasto
   const [desc, setDesc] = useState('');
   const [amount, setAmount] = useState('');
-  
   const navigate = useNavigate();
 
   const loadData = async () => {
@@ -22,8 +20,8 @@ export default function Finances() {
       const { data } = await api.get('/finances/summary');
       setSummary(data);
     } catch (error) {
-      alert('Error cargando finanzas. ¿Tienes permisos?');
-      navigate('/login'); // Si no es admin/finanzas, lo saca
+      alert('Acceso denegado o sesión expirada.');
+      navigate('/login');
     }
   };
 
@@ -42,56 +40,56 @@ export default function Finances() {
         amount: parseInt(amount)
       });
       
-      alert('Gasto registrado correctamente');
       setDesc('');
       setAmount('');
-      loadData(); // Recargar los números
+      loadData();
     } catch (error) {
-      alert('Error al registrar gasto');
+      alert('Error al registrar la transacción.');
     }
   };
 
-  // Formatear dinero (CLP)
   const fmt = (num: number) => `$ ${num.toLocaleString()}`;
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/login');
+  };
 
   return (
     <div className="finances-container">
       <div className="finances-header">
-        <h1>💰 Balance Financiero</h1>
-        <p>Estado actual de la caja del restaurante</p>
+        <h1>Estado Financiero</h1>
+        <p>Reporte de Flujo de Caja & Balance General</p>
       </div>
 
       {/* TARJETAS DE RESUMEN */}
       <div className="summary-cards">
         <div className="card income">
-          <h3>Ventas Totales</h3>
+          <h3>Ingresos por Ventas</h3>
           <div className="amount">{fmt(summary.totalSales)}</div>
-          <small>Ingresos por Pedidos</small>
         </div>
 
         <div className="card expense">
-          <h3>Gastos Registrados</h3>
+          <h3>Gastos Operativos</h3>
           <div className="amount">- {fmt(summary.totalExpenses)}</div>
-          <small>Compras y Egresos</small>
         </div>
 
         <div className="card balance">
-          <h3>Ganancia Neta</h3>
+          <h3>Balance Neto</h3>
           <div className="amount">{fmt(summary.balance)}</div>
-          <small>En Caja</small>
         </div>
       </div>
 
       {/* REGISTRO DE GASTOS */}
       <div className="expense-form">
-        <h2>📉 Registrar Gasto (Salida de Caja)</h2>
+        <h2>Registrar Egreso de Caja</h2>
         <form onSubmit={handleAddExpense}>
           <div className="form-row">
             <div className="form-group">
-              <label>Descripción</label>
+              <label>Concepto / Detalle</label>
               <input 
                 className="form-control" 
-                placeholder="Ej: Compra de limones, Pago proveedor..." 
+                placeholder="Ej: Pago a proveedores..." 
                 value={desc}
                 onChange={e => setDesc(e.target.value)}
                 required
@@ -110,14 +108,14 @@ export default function Finances() {
               />
             </div>
 
-            <button type="submit" className="save-btn">Registrar</button>
+            <button type="submit" className="save-btn">Procesar</button>
           </div>
         </form>
       </div>
 
       <div style={{textAlign: 'center'}}>
-        <button onClick={() => { localStorage.clear(); navigate('/login'); }} className="logout-btn-fin">
-          Cerrar Sesión
+        <button onClick={handleLogout} className="logout-btn-fin">
+          Cerrar Sesión Segura
         </button>
       </div>
     </div>

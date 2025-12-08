@@ -1,4 +1,3 @@
-// apps/frontend/src/app/pages/Login.tsx
 import { useState } from 'react';
 import api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
@@ -17,57 +16,64 @@ export default function Login() {
     try {
       const { data } = await api.post('/auth/login', { email, password });
       
-      // Guardar token y datos del usuario
       localStorage.setItem('token', data.access_token);
       localStorage.setItem('user', JSON.stringify(data.user));
 
-      // Redirigir según el rol (INTELIGENCIA DE NEGOCIO 🧠)
+      // Redirección inteligente
       switch(data.user.role) {
         case 'cocina': navigate('/kitchen'); break;
         case 'bodega': navigate('/inventory'); break;
         case 'finanzas': navigate('/finances'); break;
-        default: navigate('/menu'); // Clientes y otros al menú
+        default: navigate('/menu'); 
       }
       
     } catch (err: any) {
-      setError('Credenciales incorrectas. Intenta de nuevo.');
+      setError('Credenciales no válidas. Verifique sus datos.');
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="login-title">🍽️ Acceso Restaurante</h2>
+        <div className="brand-section">
+          {/* Aquí podrías poner un logo <img> si tuvieras uno */}
+          <h1 className="login-title">Le Restaurant</h1>
+          <p className="login-subtitle">Gestión Gastronómica Integral</p>
+        </div>
         
-        {error && <p className="error-msg">{error}</p>}
+        {error && <div className="error-msg">⚠️ {error}</div>}
         
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label>Email</label>
+            <label className="form-label">Correo Electrónico</label>
             <input 
               type="email" 
               className="form-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="usuario@restaurante.com"
+              placeholder="ejemplo@restaurante.com"
             />
           </div>
 
           <div className="form-group">
-            <label>Contraseña</label>
+            <label className="form-label">Contraseña</label>
             <input 
               type="password" 
               className="form-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              placeholder="••••••"
+              placeholder="••••••••"
             />
           </div>
 
-          <button type="submit" className="login-btn">Ingresar</button>
+          <button type="submit" className="login-btn">INICIAR SESIÓN</button>
         </form>
+
+        <div className="footer-text">
+          © 2025 Le Restaurant System. Todos los derechos reservados.
+        </div>
       </div>
     </div>
   );

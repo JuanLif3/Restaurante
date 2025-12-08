@@ -24,50 +24,54 @@ export default function Kitchen() {
   const [orders, setOrders] = useState<Order[]>([]);
   const navigate = useNavigate();
 
-  // 1. Cargar Pedidos Pendientes
   const loadOrders = async () => {
     try {
       const { data } = await api.get('/orders/kitchen');
       setOrders(data);
     } catch (error) {
-      console.error('Error cargando cocina', error);
-      // No redirigimos al login tan agresivamente por si es un fallo de red temporal
+      console.error('Conexión perdida con el servidor.');
     }
   };
 
   useEffect(() => {
     loadOrders();
-    
-    // Auto-refresco cada 10 segundos (Polling simple)
     const interval = setInterval(loadOrders, 10000);
     return () => clearInterval(interval);
   }, []);
 
-  // 2. Marcar como LISTO
   const handleOrderReady = async (id: string) => {
-    if (!window.confirm('¿Pedido completado?')) return;
+    // Usamos un confirm nativo pero podrías hacer un modal elegante después
+    if (!window.confirm('¿Confirmar que el pedido está listo para servir?')) return;
+    
     try {
       await api.patch(`/orders/${id}/status`, { status: 'ready' });
-      // Quitamos el pedido de la lista visualmente rápido
       setOrders(prev => prev.filter(o => o.id !== id));
-      alert('¡Pedido despachado! ✅');
     } catch (error) {
-      alert('Error al actualizar estado');
+      alert('No se pudo actualizar el estado.');
     }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.clear();
     navigate('/login');
   };
 
   return (
     <div className="kitchen-container">
       <div className="kitchen-header">
-        <h1>👨‍🍳 Comandas de Cocina</h1>
         <div>
-          <button onClick={loadOrders} className="refresh-btn" style={{marginRight: '10px'}}>🔄 Actualizar</button>
-          <button onClick={handleLogout} className="refresh-btn" style={{backgroundColor: '#c0392b'}}>Salir</button>
+          <h1>Chef Executive</h1>
+          <p style={{color: '#aab3b0', margin: '5px 0 0', fontSize: '13px'}}>
+            Monitor de Comandas en Tiempo Real
+          </p>
+        </div>
+        <div className="header-actions">
+          <button onClick={loadOrders} className="action-btn">
+            ↻ Actualizar
+          </button>
+          <button onClick={handleLogout} className="action-btn logout-btn">
+            Salir
+          </button>
         </div>
       </div>
 
@@ -75,18 +79,20 @@ export default function Kitchen() {
         {orders.map((order) => (
           <div key={order.id} className="order-card">
             <div className="order-header">
-              <span>Mesa #{order.tableNumber}</span>
-              <span className="time-ago">
+              <div className="table-info">
+                <h3>Mesa {order.tableNumber}</h3>
+              </div>
+              <div className="time-badge">
                 {new Date(order.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
-              </span>
+              </div>
             </div>
             
             <div className="order-body">
               <ul>
                 {order.items.map((item) => (
                   <li key={item.id}>
-                    <span className="qty">{item.quantity}x</span> 
-                    {item.product.name}
+                    <span className="qty-badge">{item.quantity}</span> 
+                    <span>{item.product.name}</span>
                   </li>
                 ))}
               </ul>
@@ -97,7 +103,7 @@ export default function Kitchen() {
                 className="ready-btn"
                 onClick={() => handleOrderReady(order.id)}
               >
-                ✅ ¡LISTO!
+                Despachar
               </button>
             </div>
           </div>
@@ -105,8 +111,8 @@ export default function Kitchen() {
 
         {orders.length === 0 && (
           <div className="empty-message">
-            <h2>🎉 No hay pedidos pendientes</h2>
-            <p>La cocina está tranquila... por ahora.</p>
+            <h2>Sin Pendientes</h2>
+            <p>Todo en orden, Chef.</p>
           </div>
         )}
       </div>
