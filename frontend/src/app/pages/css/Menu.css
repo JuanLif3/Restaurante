@@ -1,0 +1,139 @@
+/* apps/frontend/src/app/pages/css/Menu.css */
+.menu-container {
+  display: grid;
+  grid-template-columns: 1fr 350px; /* Carta a la izq, Comanda a la der */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ZONA IZQUIERDA: CARTA */
+.menu-grid {
+  padding: 30px;
+  background-color: #f4f6f9;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  align-content: start;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s, border 0.2s;
+  border: 2px solid transparent;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #007bff;
+}
+
+.emoji-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.price-tag {
+  display: inline-block;
+  background-color: #e2e6ea;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* ZONA DERECHA: COMANDA */
+.order-sidebar {
+  background: white;
+  border-left: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+}
+
+.sidebar-header {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.table-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.order-items {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.qty-controls button {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+.total-section {
+  border-top: 2px solid #333;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.send-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.send-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.logout-link {
+  text-align: center;
+  margin-top: 10px;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 12px;
+}
