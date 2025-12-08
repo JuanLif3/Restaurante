@@ -1,17 +1,10 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
-import { CreateFinanceDto } from './dto/create-finance.dto';
-import { UpdateFinanceDto } from './dto/update-finance.dto';
+import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
 import { FinancesService } from './finances.service';
+import { CreateFinanceDto } from './dto/create-finance.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('finances')
+@UseGuards(AuthGuard('jwt')) // Solo personal autorizado
 export class FinancesController {
   constructor(private readonly financesService: FinancesService) {}
 
@@ -25,18 +18,8 @@ export class FinancesController {
     return this.financesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.financesService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFinanceDto: UpdateFinanceDto) {
-    return this.financesService.update(+id, updateFinanceDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.financesService.remove(+id);
+  @Get('summary') // Endpoint para ver el balance final
+  getSummary() {
+    return this.financesService.getSummary();
   }
 }
