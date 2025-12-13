@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import './css/Menu.css';
+import { VoiceAssistant } from '../utils/VoiceAssistant';
 
 interface Product {
   id: string;
@@ -161,6 +162,9 @@ export default function Menu() {
             navigate('/login');
           }}>
             Cerrar Sesión
+            <VoiceAssistant 
+      textToRead="Está en la carta digital. A la izquierda tiene los platos disponibles. A la derecha su comanda. Toque un plato para agregarlo." 
+    />
           </div>
         </div>
       </div>
