@@ -1,6 +1,7 @@
 // apps/frontend/src/app/utils/VoiceAssistant.tsx
-import { useState, useEffect, useRef } from 'react';
-import '../pages/css/VoiceAssistant.css';
+import { useState, useEffect } from 'react';
+// Asegúrate de que la ruta al CSS sea correcta. Si utils y pages son hermanos:
+import '../pages/css/VoiceAssistant.css'; 
 
 interface Props {
   textToRead: string;
@@ -9,54 +10,74 @@ interface Props {
 export const VoiceAssistant = ({ textToRead }: Props) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
-  // 1. Usamos useRef para que el navegador NO borre el objeto mientras habla
-  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   useEffect(() => {
     const loadVoices = () => {
       const availableVoices = window.speechSynthesis.getVoices();
+      console.log("Voces cargadas:", availableVoices.length); // Debug
       setVoices(availableVoices);
     };
 
     loadVoices();
-    // Chrome a veces tarda en cargar las voces, esto asegura que las detecte
+    // Chrome carga las voces de forma asíncrona
     window.speechSynthesis.onvoiceschanged = loadVoices;
-
-    // Limpieza al salir de la página
-    return () => {
-      window.speechSynthesis.cancel();
-    };
+    
+    // NOTA: Quitamos el cleanup de .cancel() por ahora para evitar cortes en modo desarrollo
   }, []);
 
   const toggleSpeech = () => {
     if (isSpeaking) {
+      console.log("Deteniendo voz...");
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     } else {
-      // 2. Cancelamos cualquier audio previo que se haya quedado pegado
+      console.log("Intentando hablar...");
+      // 1. Cancelar cualquier audio anterior
       window.speechSynthesis.cancel();
 
-      // 3. Creamos la instancia y la guardamos en la referencia segura
-      const newUtterance = new SpeechSynthesisUtterance(textToRead);
-      utteranceRef.current = newUtterance;
+      // 2. Crear la instancia
+      const utterance = new SpeechSynthesisUtterance(textToRead);
 
-      // Buscamos voz en español (Google español, Microsoft Helena, etc.)
-      const esVoice = voices.find(v => v.lang.startsWith('es')) || voices[0];
-      if (esVoice) newUtterance.voice = esVoice;
-      
-      newUtterance.lang = 'es-ES';
-      newUtterance.rate = 0.9;
-      newUtterance.pitch = 1;
+      // 3. SELECCIÓN DE VOZ ROBUSTA
+      // Intentamos buscar español, si no, cualquier voz que contenga 'es', si no, la primera por defecto
+      let selectedVoice = voices.find(v => v.lang.startsWith('es-ES')); // Español España
+      if (!selectedVoice) selectedVoice = voices.find(v => v.lang.startsWith('es')); // Cualquier Español
+      if (!selectedVoice) selectedVoice = voices[0]; // La que sea (fallback)
 
-      // Eventos para controlar el estado visual
-      newUtterance.onend = () => setIsSpeaking(false);
-      newUtterance.onerror = (e) => {
-        console.error("Error de voz:", e);
+      if (selectedVoice) {
+        console.log("Voz seleccionada:", selectedVoice.name);
+        utterance.voice = selectedVoice;
+        utterance.lang = selectedVoice.lang;
+      } else {
+        console.warn("No se encontraron voces disponibles aún.");
+      }
+
+      utterance.rate = 0.9; // Velocidad
+      utterance.pitch = 1;
+
+      // 4. EVENTOS
+      utterance.onstart = () => {
+        console.log("Comenzó a hablar");
+        setIsSpeaking(true);
+      };
+
+      utterance.onend = () => {
+        console.log("Terminó de hablar");
         setIsSpeaking(false);
       };
 
-      window.speechSynthesis.speak(newUtterance);
-      setIsSpeaking(true);
+      utterance.onerror = (e) => {
+        console.error("Error de SpeechSynthesis:", e);
+        setIsSpeaking(false);
+      };
+
+      // 5. HACK NUCLEAR ANTI-GARBAGE-COLLECTOR
+      // Asignamos el objeto a la ventana global para que React/Chrome no lo borren de la memoria
+      // @ts-ignore
+      window.currentUtterance = utterance;
+
+      // 6. HABLAR
+      window.speechSynthesis.speak(utterance);
     }
   };
 
@@ -65,7 +86,7 @@ export const VoiceAssistant = ({ textToRead }: Props) => {
       className={`voice-assistant-btn ${isSpeaking ? 'speaking' : ''}`} 
       onClick={toggleSpeech}
       title="Escuchar contenido"
-      type="button" // Importante para que no envíe formularios
+      type="button" 
     >
       {isSpeaking ? '🤫' : '🔊'}
     </button>
