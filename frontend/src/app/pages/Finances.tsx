@@ -4,6 +4,14 @@ import api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import './css/Finances.css';
 
+interface FinanceRecord {
+  id: string;
+  type: 'ingreso' | 'egreso';
+  amount: number;
+  description: string;
+  createdAt: string;
+}
+
 export default function Finances() {
   const [summary, setSummary] = useState({
     totalSales: 0,
@@ -11,14 +19,23 @@ export default function Finances() {
     balance: 0
   });
   
+  // Nuevo estado para el historial
+  const [history, setHistory] = useState<FinanceRecord[]>([]);
+
   const [desc, setDesc] = useState('');
   const [amount, setAmount] = useState('');
   const navigate = useNavigate();
 
   const loadData = async () => {
     try {
-      const { data } = await api.get('/finances/summary');
-      setSummary(data);
+      // 1. Cargar Resumen
+      const summaryRes = await api.get('/finances/summary');
+      setSummary(summaryRes.data);
+
+      // 2. Cargar Historial Completo
+      const historyRes = await api.get('/finances');
+      setHistory(historyRes.data);
+
     } catch (error) {
       alert('Acceso denegado o sesión expirada.');
       navigate('/login');
@@ -42,13 +59,19 @@ export default function Finances() {
       
       setDesc('');
       setAmount('');
-      loadData();
+      loadData(); // Recargamos todo para ver el cambio inmediato
     } catch (error) {
       alert('Error al registrar la transacción.');
     }
   };
 
   const fmt = (num: number) => `$ ${num.toLocaleString()}`;
+  
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('es-CL', {
+      day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'
+    });
+  };
 
   const handleLogout = () => {
     localStorage.clear();
@@ -111,6 +134,44 @@ export default function Finances() {
             <button type="submit" className="save-btn">Procesar</button>
           </div>
         </form>
+      </div>
+
+      {/* NUEVA SECCIÓN: HISTORIAL */}
+      <div className="history-section">
+        <h2>Historial de Movimientos</h2>
+        <table className="history-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Descripción</th>
+              <th>Tipo</th>
+              <th style={{textAlign: 'right'}}>Monto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {history.map((item) => (
+              <tr key={item.id}>
+                <td>{formatDate(item.createdAt)}</td>
+                <td>{item.description}</td>
+                <td>
+                  <span className={`type-badge ${item.type}`}>
+                    {item.type.toUpperCase()}
+                  </span>
+                </td>
+                <td className={`amount-col ${item.type === 'ingreso' ? 'pos' : 'neg'}`}>
+                  {item.type === 'egreso' ? '-' : '+'} {fmt(item.amount)}
+                </td>
+              </tr>
+            ))}
+            {history.length === 0 && (
+              <tr>
+                <td colSpan={4} style={{textAlign: 'center', color: '#666', padding: '20px'}}>
+                  No hay movimientos registrados.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
 
       <div style={{textAlign: 'center'}}>

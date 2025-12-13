@@ -2,13 +2,20 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { access } from 'fs';
+import { CreateUserDto } from '../users/dto/create-user.dto';
+
 @Injectable()
 export class AuthService {
     constructor(
         private usersSerive: UsersService,
         private jwtService: JwtService
     ) {}
+
+    async register(userDto: CreateUserDto) {
+  // 🔥 FORZAMOS que el rol sea siempre 'cliente', aunque envíen otra cosa
+  const clientData = { ...userDto, role: 'cliente' };
+  return this.usersSerive.create(clientData);
+}
 
     async login(loginDto: any) {
         // Buscamos el usuario por email
@@ -32,4 +39,5 @@ export class AuthService {
             }
         };
     }
+
 }

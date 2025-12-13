@@ -1,0 +1,100 @@
+/* apps/frontend/src/app/pages/css/Register.css */
+/* Reutilizamos las variables del Login para mantener la coherencia */
+
+:root {
+  --primary-emerald: #d4af37;
+  --bg-dark: #022c22;
+  --bg-card: #0b3d31c8;
+  --text-gold: #d4af37;
+  --text-white: #f0fdf4;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+.register-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+}
+
+.register-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--text-gold);
+  margin-bottom: 10px;
+}
+
+.register-subtitle {
+  color: #aab3b0;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  color: var(--text-gold);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--text-gold);
+  color: #022c22;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.register-btn:hover {
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.login-link {
+  display: block;
+  margin-top: 20px;
+  color: #aab3b0;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-link:hover {
+  color: var(--text-gold);
+}

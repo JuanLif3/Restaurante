@@ -19,10 +19,15 @@ export class FinancesService {
     return this.financeRepository.save(movement);
   }
 
-  findAll() {
-    return this.financeRepository.find({ order: { createdAt: 'DESC' } });
-  }
-
+  
+async findAll() {
+  // Retorna todos los registros ordenados por fecha (DESC = Lo más nuevo arriba)
+  return this.financeRepository.find({
+    order: {
+      createdAt: 'DESC',
+    },
+  });
+}
   // ¡REPORTE FINANCIERO INTELIGENTE!
   async getSummary() {
     // 1. Sumar todas las ventas (Pedidos que no estén 'cancelled')

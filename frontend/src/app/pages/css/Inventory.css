@@ -92,6 +92,13 @@
   transition: all 0.3s;
 }
 
+.form-input option {
+  background-color: #022c22; /* Fondo Esmeralda Oscuro (Hardcoded para asegurar compatibilidad) */
+  color: #d4af37;            /* Texto Dorado */
+  padding: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
 .form-input:focus {
   outline: none;
   border-color: var(--gold-primary);

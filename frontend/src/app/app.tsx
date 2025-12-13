@@ -5,12 +5,14 @@ import Menu from './pages/Menu';
 import Kitchen from './pages/Kitchen';
 import Finances from './pages/Finances';
 import { ProtectedRoute } from './utils/ProtectedRoute'; // <--- Importamos el guardia
+import Register from './pages/Register';
 
 export function App() {
   return (
     <Routes>
       {/* Ruta Pública */}
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} /> {/* <--- Nueva ruta pública */}
 
       {/* 🛡️ ZONA DE CLIENTES (Y Admin) */}
       <Route element={<ProtectedRoute allowedRoles={['cliente']} />}>

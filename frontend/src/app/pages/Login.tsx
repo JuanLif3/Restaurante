@@ -68,7 +68,29 @@ export default function Login() {
             />
           </div>
 
+          
+
           <button type="submit" className="login-btn">INICIAR SESIÓN</button>
+
+          <div style={{marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px'}}>
+  <p style={{fontSize: '13px', color: '#aab3b0', marginBottom: '10px'}}>¿Eres nuevo aquí?</p>
+  <button 
+    onClick={() => navigate('/register')} 
+    style={{
+      background: 'transparent',
+      border: '1px solid #d4af37',
+      color: '#d4af37',
+      padding: '8px 20px',
+      borderRadius: '20px',
+      cursor: 'pointer',
+      fontSize: '12px',
+      fontWeight: 'bold',
+      textTransform: 'uppercase'
+    }}
+  >
+    Crear Nueva Cuenta
+  </button>
+</div>
         </form>
 
         <div className="footer-text">
